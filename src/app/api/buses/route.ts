@@ -27,7 +27,7 @@ export async function GET() {
     ];
 
     const responses = await Promise.all(
-      urls.map(url => fetch(url, { cache: 'no-store' }))
+      urls.map(url => fetch(url, { next: { revalidate: 30 } }))
     );
     
     const buses = [];
